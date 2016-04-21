@@ -50,6 +50,7 @@ public class TestCaluculationService {
 	public void squareが負の数の絶対値の二乗の値を返す() {
 		double arg = -5.0;
 		double expected = 25.0;
+
 		double actual = sut.square(arg);
 
 		assertThat(actual, is(expected));
@@ -59,17 +60,19 @@ public class TestCaluculationService {
 	@Test
 	public void squareが負の数の絶対値の二乗の値を返す_逆関数() {
 		double arg = -5.0;
+
 		double actual = sut.square(arg);
 
-		assertThat((actual / arg*(-1.0)), is(arg*(-1.0)));
+		assertThat((actual / arg * (-1.0)), is(arg * (-1.0)));
 	}
 
 	@Test
 	public void squareが負の数の絶対値の二乗の値を返す_クロスチェック() {
 		double arg = -5.0;
+
 		double actual = sut.square(arg);
 
-		assertThat(actual, is(arg*(-1.0) * arg*(-1.0)));
+		assertThat(actual, is(arg * (-1.0) * arg * (-1.0)));
 	}
 
 	@Rule
@@ -79,6 +82,7 @@ public class TestCaluculationService {
 	public void nullを渡すとExceptionをスローする() {
 		exception.expect(IllegalArgumentException.class);
 		exception.expectMessage("value is null.");
+
 		sut.square(null);
 	}
 }
