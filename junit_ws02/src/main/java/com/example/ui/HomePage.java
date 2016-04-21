@@ -1,15 +1,21 @@
 package com.example.ui;
 
+import com.example.service.ICalculationService;
+import com.google.inject.Inject;
 import org.apache.wicket.markup.html.WebPage;
 import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.form.Form;
-import org.apache.wicket.markup.html.form.RequiredTextField;
+import org.apache.wicket.markup.html.form.NumberTextField;
+import org.apache.wicket.markup.html.form.TextField;
 import org.apache.wicket.model.IModel;
 import org.apache.wicket.model.Model;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
 
 public class HomePage extends WebPage {
 	private static final long serialVersionUID = 1L;
+
+	@Inject
+	private ICalculationService service;
 
 	private IModel<Double> valueModel;
 
@@ -23,19 +29,11 @@ public class HomePage extends WebPage {
 			@Override
 			protected void onSubmit() {
 				super.onSubmit();
-				setResponsePage(new CalculationPage(valueModel));
+				IModel<Double> squareModel = Model.of(service.square(valueModel.getObject()));
+				setResponsePage(new CalculationPage(valueModel, squareModel));
 			}
 		});
 
-		queue(new RequiredTextField<>("valueField", valueModel));
-
-
-//		add(new Link<Void>("gotoCalculationPage") {
-//			@Override
-//			public void onClick() {
-//				setResponsePage(new CalculationPage());
-//			}
-//		});
-
+		queue(new TextField<>("valueField", valueModel));
 	}
 }
