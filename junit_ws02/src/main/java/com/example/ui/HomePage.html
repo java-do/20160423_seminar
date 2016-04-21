@@ -7,12 +7,9 @@
 <p>
 	Please mention the correct Wicket version:
 	<wicket:container wicket:id="version">1.5-SNAPSHOT</wicket:container>
-
-	<ul>
-	<li><a wicket:id="gotoCalculationPage">CalculationPage</a></li>
-
-</ul>
-</p>
-<p></p>
+<form wicket:id="postToCalculationPage">
+	<div>a : <input type="text" wicket:id="valueField"></div>
+	<div><button type="submit">送信</button></div>
+</form>
 </body>
 </html>

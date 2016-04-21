@@ -1,6 +1,6 @@
-package com.example;
+package com.example.ui;
 
-import com.example.ui.HomePage;
+import com.example.WicketApplication;
 import org.apache.wicket.util.tester.WicketTester;
 import org.junit.Before;
 import org.junit.Test;

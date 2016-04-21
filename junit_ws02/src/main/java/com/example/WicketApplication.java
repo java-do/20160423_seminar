@@ -1,9 +1,6 @@
 package com.example;
 
-import com.example.service.CalculationService;
-import com.example.service.ICalculationService;
 import com.example.ui.HomePage;
-import com.google.inject.Binder;
 import com.google.inject.Module;
 import org.apache.wicket.guice.GuiceComponentInjector;
 import org.apache.wicket.markup.html.WebPage;
