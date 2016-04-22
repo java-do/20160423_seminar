@@ -30,7 +30,7 @@ public class CalculationService implements ICalculationService {
 	public List<SquareLogBean> fetchLogsLimit5() {
 		List<SquareLogBean> selected = logRepository.selectSquareLog();
 		List<SquareLogBean> limited = selected.stream()
-			.sorted(Comparator.comparing(SquareLogBean::getTimestamp))
+			.sorted(Comparator.comparing(SquareLogBean::getTimestamp).reversed())
 			.limit(5)
 			.collect(Collectors.toList());
 		return limited;

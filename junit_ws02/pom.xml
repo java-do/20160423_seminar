@@ -45,6 +45,7 @@
     <jetty9.version>9.2.13.v20150730</jetty9.version>
     <log4j.version>2.5</log4j.version>
     <junit.version>4.12</junit.version>
+    <mockito.version>1.10.19</mockito.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <!-- allowed values: R7, 1.0, 1.5, 2.0 or none -->
     <wtp.version>none</wtp.version>
@@ -82,6 +83,12 @@
       <artifactId>junit</artifactId>
       <version>${junit.version}</version>
       <scope>test</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>org.mockito</groupId>
+      <artifactId>mockito-all</artifactId>
+      <version>${mockito.version}</version>
     </dependency>
 
     <!--  JETTY DEPENDENCIES FOR TESTING  -->
