@@ -1,10 +1,12 @@
 package com.example.repository;
 
 import com.example.data.SquareLogBean;
+import org.hamcrest.CoreMatchers;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
+import org.mockito.Mockito;
 
 import java.time.Clock;
 import java.time.Instant;
@@ -50,7 +52,6 @@ public class TestLogRepository {
 	public void SquareLogを複数インサートできる() throws Exception {
 		SquareLogBean item0 = new SquareLogBean(5.0, 2.5, LocalDateTime.now(clock));
 		SquareLogBean item1 = new SquareLogBean(2.0, 4.0, LocalDateTime.now(clock).plusHours(1));
-
 		sut.insertSquareLog(item0);
 		sut.insertSquareLog(item1);
 		int actual = sut.selectSquareLog().size();

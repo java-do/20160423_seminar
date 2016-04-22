@@ -22,7 +22,7 @@ public class TestSquareLogBean {
 	}
 
 	@Test
-	public void 同値関係は同一とみなす() {
+	public void 同値関係は同一のオブジェクトとみなす() {
 		LocalDateTime time1 = LocalDateTime.now(clock);
 		LocalDateTime time2 = LocalDateTime.now(clock);
 		SquareLogBean sut = new SquareLogBean(5.0, 25.0, time1);
@@ -34,7 +34,7 @@ public class TestSquareLogBean {
 	}
 
 	@Test
-	public void 同値関係でなければ同一とみなさない() {
+	public void 同値関係でなければ同一のオブジェクトとしてみなさない() {
 		LocalDateTime time1 = LocalDateTime.now(clock);
 		LocalDateTime time2 = LocalDateTime.now(clock).plusMinutes(1);
 		SquareLogBean sut = new SquareLogBean(5.0, 25.0, time1);
