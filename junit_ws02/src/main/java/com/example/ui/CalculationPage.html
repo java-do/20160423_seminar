@@ -1,6 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <html xmlns:wicket="http://wicket.apache.org">
 <body>
+	<div><strong>計算結果</strong></div>
 	<p><span wicket:id="value"></span>の絶対値の二乗は<span wicket:id="square"></span></p>
+	<div><strong>過去5回の計算結果</strong></div>
+	<table>
+		<tr>
+			<th>timestamp</th>
+			<th>value</th>
+			<th>square</th>
+		</tr>
+		<tr wicket:id="logs">
+			<td wicket:id="timestamp"></td>
+			<td wicket:id="value"></td>
+			<td wicket:id="square"></td>
+		</tr>
+	</table>
+	<div><a wicket:id="gotoHomePage">戻る</a></div>
 </body>
 </html>

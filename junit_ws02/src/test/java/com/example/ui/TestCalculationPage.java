@@ -9,22 +9,23 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.time.Clock;
+import java.time.Instant;
 import java.time.LocalDateTime;
+import java.time.ZoneId;
 
 public class TestCalculationPage {
 	private WicketTester tester;
-	private IModel<Double> valueModel;
-	private IModel<Double> squareModel;
 	private Clock clock;
 
 	@Before
 	public void setUp() {
 		tester = new WicketTester(new WicketApplication());
-		clock = Clock.systemUTC();
+		Instant instant = Instant.parse("2016-04-23T13:00:00Z");
+		clock = Clock.fixed(instant, ZoneId.systemDefault());
 	}
 
 	@Test
-	public void Modelが1つでページが表示される() {
+	public void ページが表示される() {
 		SquareLogBean bean = new SquareLogBean(5.0, 25.0, LocalDateTime.now(clock));
 		IModel<SquareLogBean> model = Model.of(bean);
 

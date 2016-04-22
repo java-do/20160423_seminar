@@ -18,13 +18,14 @@ public class TestHomePage {
 	@Before
 	public void setUp() {
 		tester = new WicketTester(new WicketApplication() {
-			@Override
-			protected Module getGuiceModule() {
-				return binder -> {
-					binder.bind(ICalculationService.class).to(CalculationService.class);
-				};
-			}
+				@Override
+				protected Module getGuiceModule() {
+					return binder -> {
+						binder.bind(ICalculationService.class).to(CalculationService.class);
+					};
+				}
 		});
+		tester = new WicketTester(new WicketApplication());
 	}
 
 	@Test
