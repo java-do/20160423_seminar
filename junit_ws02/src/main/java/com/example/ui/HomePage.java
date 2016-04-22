@@ -1,5 +1,6 @@
 package com.example.ui;
 
+import com.example.data.SquareLogBean;
 import com.example.service.ICalculationService;
 import com.google.inject.Inject;
 import org.apache.wicket.markup.html.WebPage;
@@ -10,6 +11,8 @@ import org.apache.wicket.markup.html.form.TextField;
 import org.apache.wicket.model.IModel;
 import org.apache.wicket.model.Model;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
+
+import java.time.LocalDateTime;
 
 public class HomePage extends WebPage {
 	private static final long serialVersionUID = 1L;
@@ -29,11 +32,13 @@ public class HomePage extends WebPage {
 			@Override
 			protected void onSubmit() {
 				super.onSubmit();
-				IModel<Double> squareModel = Model.of(service.square(valueModel.getObject()));
-				setResponsePage(new CalculationPage(valueModel, squareModel));
+				Double value = valueModel.getObject();
+				Double square = service.square(value);
+				SquareLogBean bean = new SquareLogBean(value, square, LocalDateTime.now());
+				setResponsePage(new CalculationPage(Model.of(bean)));
 			}
 		});
 
-		queue(new TextField<>("valueField", valueModel));
+		queue(new TextField<>("value", valueModel));
 	}
 }

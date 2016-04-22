@@ -1,8 +1,9 @@
 package com.example.data;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 
-public class SquareLogBean {
+public class SquareLogBean implements Serializable {
 
 	private Double value;
 	private Double square;
