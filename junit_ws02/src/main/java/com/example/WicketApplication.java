@@ -39,7 +39,8 @@ public class WicketApplication extends WebApplication {
 	}
 
 	protected Module getGuiceModule() {
-		return binder -> {};
+		return binder -> {
+		};
 	}
 
 }

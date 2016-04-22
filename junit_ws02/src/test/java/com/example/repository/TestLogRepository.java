@@ -21,7 +21,7 @@ public class TestLogRepository {
 	private Clock clock;
 
 	@Before
-	public void setup(){
+	public void setup() {
 		sut = new LogRepository();
 		Instant instant = Instant.parse("2016-04-23T13:00:00Z");
 		clock = Clock.fixed(instant, ZoneId.systemDefault());
@@ -70,7 +70,7 @@ public class TestLogRepository {
 	}
 
 	@Test
-	public void 同値のSequreLogBeanはインサートできない() throws Exception {
+	public void 同値のSquareLogBeanはインサートできない() throws Exception {
 		exception.expect(Exception.class);
 		exception.expectMessage("bean is duplicated.");
 

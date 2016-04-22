@@ -4,7 +4,6 @@ import com.example.data.SquareLogBean;
 import com.example.repository.ILogRepository;
 import com.google.inject.Inject;
 
-import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -21,7 +20,7 @@ public class CalculationService implements ICalculationService {
 
 	@Override
 	public void insertLog(SquareLogBean bean) throws Exception {
-		if(bean == null) {
+		if (bean == null) {
 			throw new IllegalArgumentException("bean is null.");
 		}
 		logRepository.insertSquareLog(bean);
