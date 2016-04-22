@@ -29,9 +29,9 @@ public class CalculationPage extends WebPage {
 
 			@Override
 			protected void populateItem(ListItem<SquareLogBean> item) {
-				queue(new Label("timestamp"));
-				queue(new Label("value"));
-				queue(new Label("square"));
+				item.queue(new Label("timestamp"));
+				item.queue(new Label("value"));
+				item.queue(new Label("square"));
 			}
 		});
 

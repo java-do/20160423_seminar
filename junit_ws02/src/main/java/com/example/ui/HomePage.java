@@ -8,6 +8,7 @@ import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.form.Form;
 import org.apache.wicket.markup.html.form.NumberTextField;
 import org.apache.wicket.markup.html.form.TextField;
+import org.apache.wicket.markup.html.panel.FeedbackPanel;
 import org.apache.wicket.model.IModel;
 import org.apache.wicket.model.Model;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
@@ -35,10 +36,17 @@ public class HomePage extends WebPage {
 				Double value = valueModel.getObject();
 				Double square = service.square(value);
 				SquareLogBean bean = new SquareLogBean(value, square, LocalDateTime.now());
-				setResponsePage(new CalculationPage(Model.of(bean)));
+				try {
+					service.insertLog(bean);
+					setResponsePage(new CalculationPage(Model.of(bean)));
+				} catch (Exception e) {
+					e.printStackTrace();
+					error("エラーが発生しました");
+				}
 			}
 		});
 
+		queue(new FeedbackPanel("feedback"));
 		queue(new TextField<>("value", valueModel));
 	}
 }

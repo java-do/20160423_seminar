@@ -9,11 +9,11 @@ import java.util.Objects;
  */
 public class SquareLogBean implements Serializable {
 
-	private Double value;
-	private Double square;
+	private double value;
+	private double square;
 	private LocalDateTime timestamp;
 
-	public SquareLogBean(Double value, Double square, LocalDateTime timestamp) {
+	public SquareLogBean(double value, double square, LocalDateTime timestamp) {
 		this.value = value;
 		this.square = square;
 		this.timestamp = timestamp;

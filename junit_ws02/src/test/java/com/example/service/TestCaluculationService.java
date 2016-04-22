@@ -79,10 +79,10 @@ public class TestCaluculationService {
 	public ExpectedException exception = ExpectedException.none();
 
 	@Test
-	public void nullを渡すとExceptionをスローする() {
+	public void insertLogにnullを渡すとExceptionをスローする() throws Exception {
 		exception.expect(IllegalArgumentException.class);
-		exception.expectMessage("value is null.");
+		exception.expectMessage("bean is null.");
 
-		sut.square(null);
+		sut.insertLog(null);
 	}
 }

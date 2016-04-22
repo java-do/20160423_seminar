@@ -14,11 +14,14 @@ public interface ICalculationService {
 	 * @return 二乗された value
 	 * @throws IllegalArgumentException nullが渡されたとき
 	 */
-	Double square(Double value);
+	double square(double value);
+
+
+	void insertLog(SquareLogBean squareLogBean) throws Exception;
 
 	/**
 	 * これまでに計算したログから、最新の5件だけを返す
-	 * @return 最新5件分の {@link SquareLogBean} の {@link List}、エラー時は {@link java.util.Collections#EMPTY_LIST}
+	 * @return 最新5件分の {@link SquareLogBean} の {@link List}、エラー時は要素が空
 	 */
 	List<SquareLogBean> fetchLogsLimit5();
 
